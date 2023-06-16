@@ -1,3 +1,8 @@
+import sympy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 def taylor(f, a, n):
     x = sp.Symbol('x')
     serie = sp.series(f, x, a, n, "+").removeO()
@@ -14,3 +19,14 @@ def taylor(f, a, n):
     plt.show()
 
     return serie
+
+def aproximacao_taylor():
+    entrada = input("\nDigite a função: ")
+    f = sp.sympify(entrada)
+    a = int(input("Digite o ponto: "))
+    n = int(input("Digite a quantidade de termos que deseja na série: "))
+    print("\nA função aproximada é:", taylor(f, a, n))
+    print("")
+
+if __name__ == "__main__":
+    aproximacao_taylor()
